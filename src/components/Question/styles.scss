@@ -1,0 +1,106 @@
+@import "../../styles/variables.scss";
+
+.question {
+  background: $white-0;
+  border-radius: .8rem;
+  box-shadow: 0 .2rem 1.2rem rba(0, 0, 0, 0.04);
+  padding: 2.4rem;
+  position: relative;
+
+  & + .question{
+    margin-top: .8rem;
+  }
+  
+  &.highlighted {
+    transition: all .3s;
+    background: $bg-color-gray;
+    border: .1rem solid $bg-color-primary;
+    
+    .admin-view-likes{
+      background-color: $bg-color-primary;
+    }
+    
+    footer .user-info span {
+      font-weight: 500;
+      color: $text-dark;
+    }
+  }
+  
+  &.answered {
+    background: $bg-color-disabled;
+    .admin-view-likes{
+      display: none;
+    }
+  }
+
+  .admin-view-likes{
+    transition: all .2s;
+    background: $bg-color-primary;
+    color: #fff;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    border-radius: .5rem;
+    padding: .4rem 1rem;
+    > svg path {
+      stroke: $white;
+      display: flex;
+    }
+  }
+
+  p{
+    color: $text-dark;
+  }
+
+  footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.4rem;
+
+    .user-info{
+      display: flex;
+      align-items: center;
+
+      img{
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+      }
+
+      > span{
+        margin-left: .8rem;
+        color: $gray-light-1;
+        font-size: 1.4rem;
+      }
+    }
+
+    > div {
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    button {
+      transition: all 0.2s;
+
+      &.like-button{
+        display: flex;
+        align-items: flex-end;
+        color: $gray-light-1;
+        gap: .8rem;
+
+        &.liked{
+          color: $bg-color-primary;
+
+          svg path {
+            stroke: $bg-color-primary;
+          }
+        }
+      }
+
+      &hover{
+        filter: brightness(0.8);
+      }
+    }
+  }
+}

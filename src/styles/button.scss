@@ -1,0 +1,38 @@
+@import "./variables.scss";
+
+.button{
+  height: 5rem;
+  border-radius: .8rem;
+  font-weight: 500;
+  background-color: $bg-color-primary;
+  color: white;
+  padding: 0 3.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+
+  transition: all .3;
+
+  img{
+    margin-right: .8rem;
+  }
+
+  &.outlined{
+    background: $white;
+    border: .1rem solid $bg-color-primary;
+    color: $bg-color-primary;
+  }
+
+  &:not(:disabled):hover{
+    filter: brightness(0.9);
+  }
+
+  &:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+}
