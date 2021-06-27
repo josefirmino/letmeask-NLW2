@@ -112,3 +112,30 @@
     }
   }
 }
+
+@media (max-width: 480px){
+  #page-room{
+    header{
+  
+      .content{
+        flex-direction: column !important;
+  
+        > img{
+          max-height: 8rem !important;
+          margin-bottom: 2rem;
+        }
+  
+        > div{
+
+        flex-direction: column !important;
+          gap: 1rem;
+
+        }
+      }
+    }
+
+  }
+  main{
+    padding: 1.5rem !important;
+  }
+}

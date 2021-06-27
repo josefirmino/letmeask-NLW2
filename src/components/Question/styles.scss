@@ -104,3 +104,10 @@
     }
   }
 }
+
+@media (max-width: 480px){
+  .admin-view-likes{
+    top: -1.5rem !important;
+    padding: .1rem .5rem !important;
+  }
+}
