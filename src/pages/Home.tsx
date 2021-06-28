@@ -10,17 +10,19 @@ import { Button } from '../components/Button'
 import { useAuth } from '../hooks/useAuth'
 
 import '../styles/auth.scss'
+import { useTheme } from '../hooks/useTheme'
 
 export function Home() {
   const history = useHistory()
   const { user, signInWithGoogle } = useAuth()
+  const { theme, toggleTheme } = useTheme()
   const [ roomCode, setRoomCode] = useState('')
 
   async function handleCreateRoom(){
     if (!user){
      await signInWithGoogle()
     }
-    
+
     history.push('/rooms/new')
   }
 
@@ -47,7 +49,12 @@ export function Home() {
   }
 
   return (
-    <div id="page-auth">
+    <div id="page-auth" className={theme}>
+
+      {/* Dark Theme */}
+      <button className="toggle-theme" onClick={toggleTheme}>Tema</button>
+
+
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -62,8 +69,8 @@ export function Home() {
           </button>
           <div className="separator">ou entre em uma sala</div>
           <form onSubmit={handleJoinRoom}>
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Digite o código da sala"
               onChange={event => setRoomCode(event.target.value)}
               value={roomCode}
